@@ -9,9 +9,6 @@ COPY . ./
 RUN npm run build
 
 FROM nginx:latest
-
-LABEL org.opencontainers.image.source https://github.com/mzrimsek/obs-views
-
 COPY --from=build /app/build /usr/share/nginx/html
 COPY nginx/nginx.conf /etc/nginx/conf.d/default.conf
 EXPOSE 80
