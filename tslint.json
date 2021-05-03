@@ -1,0 +1,52 @@
+{
+  "extends": [
+    "tslint:recommended",
+    "tslint-react",
+    "tslint-config-prettier"
+  ],
+  "linterOptions": {
+    "exclude": [
+      "config/**/*.js",
+      "node_modules/**/*.ts",
+      "coverage/lcov-report/*.js"
+    ]
+  },
+  "rules": {
+    "ordered-imports": [
+      true,
+      {
+        "import-sources-order": "case-insensitive",
+        "named-imports-order": "case-insensitive",
+        "grouped-imports": true,
+        "groups": [
+          {
+            "match": "^react",
+            "order": 10
+          },
+          {
+            "match": "^firebase",
+            "order": 15
+          },
+          {
+            "match": "^app",
+            "order": 20
+          },
+          {
+            "name": "parent_dir",
+            "match": "^[.][.]",
+            "order": 50
+          },
+          {
+            "name": "current dir",
+            "match": "^[.]",
+            "order": 40
+          },
+          {
+            "match": null,
+            "order": 30
+          }
+        ]
+      }
+    ]
+  }
+}

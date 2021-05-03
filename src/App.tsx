@@ -1,10 +1,5 @@
-import './App.css';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route
-} from 'react-router-dom';
-import WordTracking from './pages/WordTracking';
+import WordTracking from 'pages/WordTracking';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (

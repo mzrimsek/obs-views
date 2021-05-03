@@ -1,7 +1,5 @@
-import React from 'react';
+import firebase from 'helpers/firebase';
 import { useCollection } from 'react-firebase-hooks/firestore';
-import firebase from '../../helpers/firebase';
-
 
 export default function WordTracking() {
   const [value, loading, error] = useCollection(
@@ -11,7 +9,7 @@ export default function WordTracking() {
     }
   );
 
-  if (loading || error) {
+  if (loading || error || !value) {
     return null;
   }
 
@@ -19,7 +17,7 @@ export default function WordTracking() {
     const id = doc.id;
     const data = doc.data();
     return {
-      phrase: id.split('_').join(' '),
+      phrase: id.replaceAll('_', ' '),
       count: data.count
     };
   });
