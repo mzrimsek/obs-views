@@ -17,7 +17,7 @@ export default function WordTracking() {
     const id = doc.id;
     const data = doc.data();
     return {
-      phrase: id.replaceAll('_', ' '),
+      phrase: id.split('_').join(' '),
       count: data.count
     };
   });
