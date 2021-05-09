@@ -21,8 +21,9 @@ export default function WordTracking() {
       count: data.count
     };
   });
+  const sortedValues = values.sort((a, b) => b.count - a.count);
 
-  const valueNodes = values.map((value, index) => {
+  const valueNodes = sortedValues.map((value, index) => {
     return (
       <div key={index}>{value.phrase}: {value.count}</div>
     );
